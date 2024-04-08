@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model List<AniAvagyan.Models.Entities.Student>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1 {
+            color: #007bff;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .table th,
+            .table td {
+                border: 1px solid #dee2e6;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f8f9fa;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h1>Students</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.Name</td>
+                    <td>@student.Email</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
